@@ -5,11 +5,10 @@ from commonconf import settings
 from uw_o365.dao import O365_DAO
 from restclients_core.exceptions import DataFailureException
 try:
-    from urllib import quote, unquote
+    from urllib import quote, unquote, urlencode
 except:
-    from urllib.parse import quote, unquote
+    from urllib.parse import quote, unquote, urlencode
 from urllib3 import PoolManager
-from urllib import urlencode
 import warnings
 from json import loads as json_loads
 from json import dumps as json_dumps
