@@ -102,7 +102,12 @@ class O365(object):
     def _param_list(self, params=None):
         query_string = [urlencode({'api-version': self._api_version})]
         if params:
-            for key, val in params.iteritems():
+            try:
+                items = params.iteritems()
+            except:
+                items = params.items()
+
+            for key, val in items:
                 if isinstance(val, list):
                     query_string.extend(
                         [urlencode({"%s[]" % key: str(v)}) for v in val])
