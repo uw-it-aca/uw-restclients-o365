@@ -4,7 +4,10 @@ See: https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/users-operation
 """  # noqa
 from uw_o365 import O365
 from uw_o365.models import User as UserModel
-from urlparse import urlparse, parse_qs
+try:
+    from urlparse import urlparse, parse_qs
+except:
+    from urllib.parse import urlparse, parse_qs
 
 
 class User(O365):

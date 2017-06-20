@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 from os.path import abspath, dirname
 from restclients_core.dao import DAO
 
@@ -16,7 +17,8 @@ class O365_DAO(DAO):
             if response.status != 400:
                 path = "%s/resources/%s/file%s.%s" % (
                     abspath(dirname(__file__)), self.service_name(),
-                    url, method.title())
+                    url, method)
+                path = re.sub('[\?|<>=:*,;+&"@$]', '_', path)
 
                 try:
                     handle = open(path)
