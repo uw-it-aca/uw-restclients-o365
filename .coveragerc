@@ -1,0 +1,4 @@
+[run]
+branch = True
+source = uw_o365/
+include = uw_o365/*
