@@ -1,0 +1,2 @@
+include uw_o365/VERSION
+recursive-include uw_o365 *
